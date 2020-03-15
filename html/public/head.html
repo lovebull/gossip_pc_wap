@@ -1,0 +1,132 @@
+<!-- 页头 -->
+
+<header class="main-head">
+    <div class="layui-container">
+      <div class="layui-row navbar">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md9 left-menu">
+          <div class="logo"><a href="//{$maccms.site_url}" aria-current="page">{$maccms.site_name}</a></div>
+          <div class="nav"><ul id="menu-%e4%b8%bb%e5%af%bc%e8%88%aa" class="layui-nav">
+
+              <li id="menu-item-320" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-320 layui-nav-item layui-this">
+                  <a href="//{$maccms.site_url}" aria-current="page">Home</a>
+                </li>
+
+            {maccms:type  order="asc" by="sort" ids="6,7" flag="vod"  }
+    
+            <li id="menu-item-323"
+            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-323 layui-nav-item">
+            <a href="{:mac_url_type($vo)}">  {$vo.type_name}</a>
+            </li>
+
+            {/maccms:type}
+
+            <!-- <li id="menu-item-323"
+                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-323 layui-nav-item">
+                <a href="https://www.tianbianyu.com/category/post/">文章</a>
+                <ul class="layui-nav-child">
+                    <li id="menu-item-328" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-328"><a
+                            href="https://www.tianbianyu.com/category/post/blog/">随笔</a></li>
+                    <li id="menu-item-325" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-325"><a
+                            href="https://www.tianbianyu.com/category/post/web-front-end/">前端</a></li>
+                    <li id="menu-item-324" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-324"><a
+                            href="https://www.tianbianyu.com/category/post/wordpress/">wordpress</a></li>
+                    <li id="menu-item-327" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-327"><a
+                            href="https://www.tianbianyu.com/category/post/design/">设计</a></li>
+                    <li id="menu-item-326" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-326"><a
+                            href="https://www.tianbianyu.com/category/post/game/">游戏</a></li>
+                    <li id="menu-item-329" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-329"><a
+                            href="https://www.tianbianyu.com/category/movie/">电影</a></li>
+                </ul>
+            </li> -->
+<!-- <li id="menu-item-321" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-321 layui-nav-item"><a href="https://www.tianbianyu.com/category/case/">作品</a></li> -->
+</ul></div>          
+
+<div class="search">
+    <form role="search" method="POST"  class="search-form" action="{:mac_url('vod/search')}">
+    <input type="search" name="wd" placeholder="Serach..." class="layui-input layui-input-search" value="{$param.wd}">
+</form>          
+
+</div>
+
+  
+        <div class="phone-nav">
+            <ul id="menu-%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%af%bc%e8%88%aa" class="layui-nav">
+                <li id="menu-item-331"
+                    class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-331 layui-nav-item">
+                    <a href="#">导航</a>
+                    <ul class="layui-nav-child">
+                        <li id="menu-item-330"
+                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-330 layui-this">
+                            <a href="http://www.tianbianyu.com/" aria-current="page">首页</a></li>
+                        <li id="menu-item-332"
+                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-332"><a
+                                href="https://www.tianbianyu.com/category/post/blog/">随笔</a></li>
+                        <li id="menu-item-333"
+                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-333"><a
+                                href="https://www.tianbianyu.com/category/post/web-front-end/">前端</a></li>
+                        <li id="menu-item-334"
+                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-334"><a
+                                href="https://www.tianbianyu.com/category/post/wordpress/">wordpress</a></li>
+                        <li id="menu-item-335"
+                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-335"><a
+                                href="https://www.tianbianyu.com/category/post/design/">设计</a></li>
+                        <li id="menu-item-336"
+                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-336"><a
+                                href="https://www.tianbianyu.com/category/post/game/">游戏</a></li>
+                        <li id="menu-item-337"
+                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-337"><a
+                                href="https://www.tianbianyu.com/category/movie/">电影</a></li>
+                        <li id="menu-item-338"
+                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-338"><a
+                                href="https://www.tianbianyu.com/category/case/">作品</a></li>
+                        <li id="menu-item-339" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-339"><a
+                                href="https://www.tianbianyu.com/about/">关于</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        </div>
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md3 right-menu">
+          <div class="nav"><ul id="menu-%e5%8f%b3%e4%be%a7%e8%8f%9c%e5%8d%95" class="layui-nav">
+              <!-- <li id="menu-item-319" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-319 layui-nav-item"><a href="https://www.tianbianyu.com/collects/">收藏夹</a></li> -->
+<li id="menu-item-98" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-98 layui-nav-item"><a href="{:mac_url('index/about')}">About</a></li>
+</ul></div>        </div>
+      </div>
+    </div>
+  </header>
+
+<!-- <div class="header">
+    <div id="logo"><a href="{$maccms.path}" title="{$maccms.site_name}"><img src="{$maccms.site_logo|mac_url_img}" alt="{$maccms.site_name}" /></a></div>
+    <div id="searchbar">
+        <div class="ui-search">
+            <form id="search" name="search" method="get" action="{:mac_url('vod/search')}" onSubmit="return qrsearch();">
+                <input type="text" name="wd" class="search-input mac_wd" value="{$param.wd}" placeholder="请在此处输入影片名或演员名称" />
+                <input type="submit" id="searchbutton"  class="search-button mac_search" value="搜索影片" />
+            </form>
+        </div>
+        <div class="hotkeys">热搜：
+            {maccms:foreach name=":explode(',',$maccms.search_hot)" id="vo2" key="key2"}
+            <a href="{:mac_url('vod/search',['wd'=>$vo2])}">{$vo2}</a>
+            {/maccms:foreach}
+        </div>
+    </div>
+    <ul id="qire-plus">
+        <li><a href="{:mac_url('label/rank')}" class=""><i class="ui-icon top-icon"></i>排行</a></li>
+        <li><a href="{:mac_url('gbook/index')}"><i class="ui-icon gb-icon"></i>留言</a></li>
+        <li><a href="javascript:void(0);" style="cursor:hand; background:none;" onclick="MAC.Fav(location.href,document.title);"><i class="ui-icon fav-icon"></i>收藏</a></li>
+    </ul>
+</div> -->
+<!-- 导航菜单 -->
+<!-- <div id="navbar">
+    <div class="layout fn-clear">
+        <ul id="nav" class="ui-nav">
+            <li class="nav-item {if condition="$maccms.aid eq 1"} current{/if}"><a class="nav-link" href="{$maccms.path}">网站首页</a></li>
+            {maccms:type ids="parent" order="asc" by="sort"}
+            <li class="nav-item {$vo.type_id}={$vo.type_pid} {if condition="($vo.type_id eq $GLOBALS['type_id'] || $vo.type_id eq $GLOBALS['type_pid'])"} current{/if}"><a class="nav-link" href="{:mac_url_type($vo)}">{$vo.type_name}</a></li>
+            {/maccms:type}
+            <li class="nav-item {if condition="$maccms.aid eq 30"} current{/if}"><a class="nav-link" href="{:mac_url_topic_index()}">专题</a></li>
+            <li class="nav-item mac_user"><a class="nav-link" href="javascript:;">会员</a></li>
+            <li class="nav-item"><a class="nav-link" href="{:mac_url('map/index')}" style=" margin-left:102px; padding:0 0 0 30px; background:url({$maccms.path_tpl}images/ico.png) no-repeat left center;">最近更新</a></li>
+        </ul>
+    </div>
+</div> -->

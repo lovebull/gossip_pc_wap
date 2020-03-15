@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="keywords" content="{$maccms.site_keywords}" />
+  <meta name="description" content=" {$maccms.site_description}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title> {$obj.vod_name}  - {$maccms.site_name} </title>
+	 
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+  
+
+
+
+
+
+
+{include file="public/include"}
+
+ 
+<link href="{$maccms.path_tpl}css/style.css" rel="stylesheet" type="text/css" />
+<script src="{$maccms.path}static/js/jquery.js"></script>
+<script src="{$maccms.path}static/js/jquery.lazyload.js"></script>
+<script src="{$maccms.path}static/js/jquery.autocomplete.js"></script>
+<script src="{$maccms.path_tpl}js/jquery.superslide.js"></script>
+<script src="{$maccms.path_tpl}js/jquery.lazyload.js"></script>
+<script src="{$maccms.path_tpl}js/jquery.base.js"></script>
+<script>var maccms={"path":"__ROOT__","mid":"{$maccms['mid']}","aid":"{$maccms['aid']}","url":"{$maccms['site_url']}","wapurl":"{$maccms['site_wapurl']}","mob_status":"{$maccms['mob_status']}"};</script>
+<script src="{$maccms.path}static/js/home.js"></script>
+<script></script>
+
+
+
+
+</head>
+<body class="post-template-default single single-post postid-666 single-format-standard wp-custom-logo">
+
+
+
+    {include file="public/head"}
+  
+  
+  
+  
+  <main class="main-inner">
+
+
+    <!-- <div class="main-post-head">
+        <div class="floating-header-title">
+            <span class="logo">天边鱼Blog</span> -
+            JS对金额格式化 </div>
+        <div class="progress"></div>
+    </div> -->
+    <div class="layui-container main-post">
+        <div class="post-full-header">
+            <div class="post-full-meta">
+                <span class="post-full-meta-date">{$obj.vod_time_add|date='Y-m-d',###}</span>
+                <span class="date-divider">/</span>
+                <span class="post-full-meta-date"><a href="  {:mac_url_type($obj)}     "
+                        rel="category tag">{$obj.type.type_name}</a></span>
+            </div>
+           <h1 class="post-full-title">{$obj.vod_name} </h1>   <!--  {$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']} -->
+        </div>
+     
+ 
+
+
+
+<div class="post-full-content">
+
+    <!--play video-->
+    <div class="ui-box" id="detail-box">
+        <div id="bofang_box">
+            {$player_data}
+            {$player_js}
+        </div>
+    </div>
+
+
+    <div class="post-content">
+
+
+        <!-- 内容 -->
+
+
+
+    </div>
+    <div class="post-foot">
+        <div class="foot-tags">
+                  {$obj.vod_tag | mac_url_create= 'tag' }
+         </div>
+                
+    </div>
+</div>
+</div>
+
+
+   
+
+    
+  </main>
+  <div class="main-read-next">
+    <div class="layui-container">
+      <div class="layui-row layui-col-space20">
+
+        {maccms:vod num="6" order="desc" by="hits_month" paging="no" type="6,7"}
+        
+                    <div class="layui-col-md4" id="post-696">
+                        <div class="post-card">
+                            <a href="{:mac_url_vod_play($obj)} ">
+                                <div class="post-card-image"
+                                    style="background-image: url({:mac_url_img($vo.vod_pic)})">
+                                </div>
+                            </a>
+                            <div class="post-card-content post-card-content-next " id="card-cat">
+                                <a href="{:mac_url_vod_play($obj)}" class="post-card-content-link">
+                                    <div class="post-card-header">
+                                        <span class="post-card-tags">
+                                            {$vo.type.type_name} </span>
+                                        <h2 class="post-card-title">{$vo.vod_name}</h2> 
+                                    </div>
+                                </a>
+                                <div class="post-card-meta">
+                                    <div class="static-avatar">
+                                        <img class="author-profile-image"
+                                            src="https://www.tianbianyu.com/wp-content/uploads/2019/09/2019-09-25-0233016416.jpg" />
+                                    </div>
+                                    <span class="reading-time">{$vo.vod_time_add|date='Y-m-d',###}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+        {/maccms:vod}
+
+
+
+                             
+                      
+
+      </div>
+    </div>
+  </div>
+
+  {include file="public/foot"}
+ 
+<script type="text/javascript">
+var ak_js = document.getElementById( "ak_js" );
+
+if ( ! ak_js ) {
+	ak_js = document.createElement( 'input' );
+	ak_js.setAttribute( 'id', 'ak_js' );
+	ak_js.setAttribute( 'name', 'ak_js' );
+	ak_js.setAttribute( 'type', 'hidden' );
+}
+else {
+	ak_js.parentNode.removeChild( ak_js );
+}
+
+ak_js.setAttribute( 'value', ( new Date() ).getTime() );
+
+var commentForm = document.getElementById( 'commentform' );
+
+if ( commentForm ) {
+	commentForm.appendChild( ak_js );
+}
+else {
+	var replyRowContainer = document.getElementById( 'replyrow' );
+
+	if ( replyRowContainer ) {
+		var children = replyRowContainer.getElementsByTagName( 'td' );
+
+		if ( children.length > 0 ) {
+			children[0].appendChild( ak_js );
+		}
+	}
+}
+
+</script>
+</body>
+</html>
+<!-- Dynamic page generated in 0.331 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2020-02-26 23:21:50 -->
+
+<!-- Compression = gzip -->

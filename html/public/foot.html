@@ -1,0 +1,130 @@
+ 
+<div style="display:none">{$maccms.site_tj}</div>
+
+<footer class="main-foot">
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="layui-col-md12">
+                <div class="site-info">
+                    <div class="menu-%e5%ba%95%e9%83%a8%e5%af%bc%e8%88%aa-container">
+                        <ul id="menu-%e5%ba%95%e9%83%a8%e5%af%bc%e8%88%aa" class="menu">
+                            <li id="menu-item-364"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-364">
+                                <a href="https://www.tianbianyu.com/privacy-policy/">Policy & Terms</a></li>
+                             <li id="menu-item-365"
+                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-365"><a
+                                    target="_blank" rel="noopener noreferrer"
+                                    href="#">  <a href="{:mac_url('rss/index')}" title="rss">RSS</a>-
+									<a href="{:mac_url('rss/baidu')}" target="_blank" title="Sitemap">Sitemap</a></a></li> 
+                            <li id="menu-item-366"
+                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-366"><a
+                                    target="_blank" rel="noopener noreferrer"
+                                    href="#"> <p>Copyright &#169; 2012-2018 {$maccms.site_url}. All Rights Reserved. </p></a></li> 
+                        </ul>
+					</div>
+					
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- <script type='text/javascript' src='https://www.tianbianyu.com/wp-content/themes/fishTheme/js/jquery-1.10.1.min.js?ver=1.10.1'></script> -->
+<script src="{$maccms.path}static/js/jquery.js"></script>
+<script type='text/javascript' src='{$maccms.path}static/layui/layui.js?ver=2.4.5'></script>
+<!-- <script type='text/javascript' src='https://www.tianbianyu.com/wp-content/themes/fishTheme/js/main.js?ver=1.0.2'></script> -->
+
+  
+
+<script type="text/javascript">
+
+
+/*
+ * 主JS文件
+ * 日期: 2019-02-12
+ * By Endfish
+ *
+*/
+
+$(document).ready(function(){
+	initPage();
+	author_card();
+
+	//百度统计
+	baiduStatistics();
+
+	if ($('body').hasClass('single-post')) {
+		postHead();
+	}
+});
+
+function initPage () {
+
+	//LayUI
+	layui.use(['element', 'form', 'layer','util'],function(){
+		var element = layui.element
+		,form = layui.form
+		,upload = layui.upload
+		,laydate = layui.laydate
+		,layer = layui.layer
+		,util = layui.util
+		,laypage = layui.laypage;
+
+		//返回顶部
+		util.fixbar({
+			top: true
+			, click: function (type) {
+				// console.log(type);
+				// if (type === 'bar1') {
+				// 	alert('点击了bar1')
+				// }
+			}
+		});
+
+	});
+
+}
+
+function postHead() {
+	var navH = $(".main-head").offset().top;
+	var navHight = $('.main-post-head').innerHeight();
+
+	var postHight = $('.single .main-inner .main-post').height();
+	var postH = $(".single .main-inner .main-post").offset().top;
+
+	$(document).scroll(function(){
+		var scroH = $(this).scrollTop();
+		//滚动吸附
+		if ( scroH >= navH ){
+			$('.main-post-head').css('top', 0 + navH);
+		} 
+		if( scroH < 50 ){
+			$('.main-post-head').css('top', -(navHight));
+		}
+		//进度条
+		var postTotal = Math.round((scroH / postHight) * 100); //百分比
+		if( postTotal == 100 ){
+			postTotal = 100;
+		}
+		$('.main-post-head .progress').css('width', postTotal + '%');
+	});
+
+
+}
+
+function author_card() {
+	var hoverTimeout;
+	$('div.author-list').hover(function() {
+		clearTimeout(hoverTimeout);
+		$('div.author-card').addClass('hovered');
+	},function() {
+		hoverTimeout = setTimeout(function () {
+			$('div.author-card').removeClass('hovered');
+		}, 800);
+	});
+}
+
+
+</script>
+ 
