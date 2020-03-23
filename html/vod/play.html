@@ -61,8 +61,8 @@ img.emoji {
 
     <!-- <div class="main-post-head">
         <div class="floating-header-title">
-            <span class="logo">天边鱼Blog</span> -
-            JS对金额格式化 </div>
+            <span class="logo"> Blog</span> -
+            JS  </div>
         <div class="progress"></div>
     </div> -->
     <div class="layui-container main-post">
@@ -95,9 +95,8 @@ img.emoji {
 
 
         <!-- 内容 -->
-
-
-
+        start:<div id="rate" data-mid="{$maccms.mid}" data-id="{$obj.vod_id}" data-score="{$obj.vod_score/2|ceil}" ></div>
+        
     </div>
     <div class="post-foot">
         <div class="foot-tags">
@@ -193,6 +192,51 @@ else {
 }
 
 </script>
+
+<script>
+    layui.use('rate', function(){
+      var rate = layui.rate;
+     
+      //渲染
+      var ins1 = rate.render({
+        elem: '#rate'  //绑定元素
+        , length: 5            //星星个数
+        , value: {$obj.vod_score}             //初始化值
+        
+        , half: true           //支持半颗星
+        , text: true      
+        //自定义文本，点击后文本显示的内容
+        , setText: function (value) {
+            
+                this.span.text({$obj.vod_score})
+                   
+            } 
+                //选定时调用，评分时发送一个ajax,readonly设为true
+                , choose: function (value) {
+                   // if (value > 4) alert('{$obj.vod_score*10|ceil}%')
+                   
+  
+
+                    $.getJSON(maccms.path+'/index.php/ajax/score?mid='+$('#rate').attr('data-mid')+'&id='+$('#rate').attr('data-id')+'&score='+(value), function (r) {
+						if (parseInt(r.code) == 1) {
+                    
+                            layer.alert(r.msg) 
+							 							 
+						}
+						else {
+							 
+                            layer.alert( r.msg) 
+							 
+						}
+					});
+
+                    
+                }
+      });
+    });
+    </script>
+
+
 </body>
 </html>
 <!-- Dynamic page generated in 0.331 seconds. -->
